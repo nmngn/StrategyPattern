@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3699E1FB26711C3E004AF853 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3699E1FA26711C3E004AF853 /* main.swift */; };
-		36F9C6212671357B006E6AA5 /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C6202671357B006E6AA5 /* Strategy.swift */; };
-		36F9C6242671361E006E6AA5 /* ResultPaypalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C6232671361E006E6AA5 /* ResultPaypalModel.swift */; };
-		36F9C62726713678006E6AA5 /* DetailTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C62626713678006E6AA5 /* DetailTransactionModel.swift */; };
+		36F9C6212671357B006E6AA5 /* TypeCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C6202671357B006E6AA5 /* TypeCalculate.swift */; };
+		36F9C6242671361E006E6AA5 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C6232671361E006E6AA5 /* Math.swift */; };
+		36F9C62726713678006E6AA5 /* Multiply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C62626713678006E6AA5 /* Multiply.swift */; };
+		36F9C6302671480D006E6AA5 /* Adaptee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C62F2671480D006E6AA5 /* Adaptee.swift */; };
+		36F9C634267149E5006E6AA5 /* ParseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C633267149E5006E6AA5 /* ParseAdapter.swift */; };
+		36F9C63726714AE4006E6AA5 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9C63626714AE4006E6AA5 /* Target.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +31,12 @@
 /* Begin PBXFileReference section */
 		3699E1F726711C3E004AF853 /* DesignPattern */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DesignPattern; sourceTree = BUILT_PRODUCTS_DIR; };
 		3699E1FA26711C3E004AF853 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		36F9C6202671357B006E6AA5 /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
-		36F9C6232671361E006E6AA5 /* ResultPaypalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPaypalModel.swift; sourceTree = "<group>"; };
-		36F9C62626713678006E6AA5 /* DetailTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionModel.swift; sourceTree = "<group>"; };
+		36F9C6202671357B006E6AA5 /* TypeCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCalculate.swift; sourceTree = "<group>"; };
+		36F9C6232671361E006E6AA5 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		36F9C62626713678006E6AA5 /* Multiply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiply.swift; sourceTree = "<group>"; };
+		36F9C62F2671480D006E6AA5 /* Adaptee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adaptee.swift; sourceTree = "<group>"; };
+		36F9C633267149E5006E6AA5 /* ParseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseAdapter.swift; sourceTree = "<group>"; };
+		36F9C63626714AE4006E6AA5 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +70,30 @@
 			isa = PBXGroup;
 			children = (
 				3699E1FA26711C3E004AF853 /* main.swift */,
-				36F9C6202671357B006E6AA5 /* Strategy.swift */,
-				36F9C6232671361E006E6AA5 /* ResultPaypalModel.swift */,
-				36F9C62626713678006E6AA5 /* DetailTransactionModel.swift */,
+				36F9C62E2671476C006E6AA5 /* Adapter */,
+				36F9C62C26714763006E6AA5 /* Strategy */,
 			);
 			path = DesignPattern;
+			sourceTree = "<group>";
+		};
+		36F9C62C26714763006E6AA5 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				36F9C6202671357B006E6AA5 /* TypeCalculate.swift */,
+				36F9C6232671361E006E6AA5 /* Math.swift */,
+				36F9C62626713678006E6AA5 /* Multiply.swift */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		36F9C62E2671476C006E6AA5 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				36F9C62F2671480D006E6AA5 /* Adaptee.swift */,
+				36F9C633267149E5006E6AA5 /* ParseAdapter.swift */,
+				36F9C63626714AE4006E6AA5 /* Target.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +153,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36F9C6242671361E006E6AA5 /* ResultPaypalModel.swift in Sources */,
-				36F9C62726713678006E6AA5 /* DetailTransactionModel.swift in Sources */,
-				36F9C6212671357B006E6AA5 /* Strategy.swift in Sources */,
+				36F9C6242671361E006E6AA5 /* Math.swift in Sources */,
+				36F9C634267149E5006E6AA5 /* ParseAdapter.swift in Sources */,
+				36F9C63726714AE4006E6AA5 /* Target.swift in Sources */,
+				36F9C62726713678006E6AA5 /* Multiply.swift in Sources */,
+				36F9C6212671357B006E6AA5 /* TypeCalculate.swift in Sources */,
+				36F9C6302671480D006E6AA5 /* Adaptee.swift in Sources */,
 				3699E1FB26711C3E004AF853 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

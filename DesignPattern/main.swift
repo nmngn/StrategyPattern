@@ -7,34 +7,52 @@
 
 import Foundation
 
-class TypeStategy {
-    var dataSource: AllocateCCQDatasource?
+class StringOriginData {
+    var delegate: StringTarget?
     
-    var modelR = ResultPaypalModel(type: .allocate)
-    var modelD = DetailTransactionModel(type: .header)
-        
-    func getTransactionName() -> String {
-        return dataSource?.getName() ?? ""
-    }
-    
-    func getMoneyValue() -> String {
-        return dataSource?.getAmount() ?? ""
+    func letParse() {
+        delegate?.sendStringData(data: "100")
     }
 }
 
-class DetailProcessing {
+class FloatOriginData {
+    var delegate: FloatTarget?
     
-    var type = TypeStategy()
-    
-    func getData() {
-        type.modelR.title = "GD so 1"
-        type.modelD.money = "1.000.000$"
-        
-        let amount = type.getMoneyValue()
-        print(amount)
-        
-        let name = type.getTransactionName()
-        print(name)
+    func letParse() {
+        delegate?.sendFloatData(data: 10.0)
     }
+}
 
+class Calculation: DataToIntDelegate {
+
+    var a,b: Int?
+    var type: TypeCalculate?
+    
+    func newFirstInt(intData: Int) {
+        self.a = intData
+    }
+    func newSecondInt(intData: Int) {
+        self.b = intData
+    }
+    
+    func chooseType(type: TypeCalculate) {
+        self.type = type
+    }
+    
+    func calculate() -> Int {
+        guard let a = self.a, let b = self.b else { return 0}
+        return type?.calculate(a: a, b: b) ?? 0
+    }
+    
+}
+
+class Example {
+    func getValue() -> Int {
+        var calculator = Calculation()
+        calculator.chooseType(type: Math)
+        return calculator.calculate()
+        
+//        calculator.chooseType(type: Multiply)
+//        return calculator.calculate()
+    }
 }
