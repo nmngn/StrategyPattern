@@ -8,16 +8,24 @@
 import Foundation
 
 class ParseAdapter: FloatTarget, StringTarget {
-    var delegate: DataToIntDelegate?
+    var adapteeFirst: FirstAdaptee?
+    var adapteeSecond: SecondAdaptee?
 
+    init(tee1: FirstAdaptee, tee2: SecondAdaptee) {
+        self.adapteeFirst = tee1
+        self.adapteeSecond = tee2
+    }
+  
     func sendFloatData(data: Float) {
         let newData = self.floatToInt(data: data)
-        delegate?.newFirstInt(intData: newData)
+        print("NewFloatData: \(newData)")
+        self.adapteeFirst?.newFirstInt(intData: newData)
     }
     
     func sendStringData(data: String) {
         let newData = self.stringToInt(data: data)
-        delegate?.newSecondInt(intData: newData)
+        print("NewStringData: \(newData)")
+        self.adapteeSecond?.newSecondInt(intData: newData)
     }
     
     func floatToInt(data: Float) -> Int {

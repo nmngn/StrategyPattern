@@ -7,7 +7,20 @@
 
 import Foundation
 
-protocol DataToIntDelegate {
-    func newFirstInt(intData: Int)
-    func newSecondInt(intData: Int)
+class FirstAdaptee {
+    var firstValue = 0
+    
+    func newFirstInt(intData: Int) {
+        firstValue = intData
+        print("Fisrt is \(intData)")
+    }
+}
+
+class SecondAdaptee {
+    var secondValue = 0
+    
+    func newSecondInt(intData: Int) {
+        secondValue = intData
+        print("Second is \(intData)")
+    }
 }

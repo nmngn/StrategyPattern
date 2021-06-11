@@ -7,52 +7,41 @@
 
 import Foundation
 
-class StringOriginData {
-    var delegate: StringTarget?
-    
-    func letParse() {
-        delegate?.sendStringData(data: "100")
-    }
-}
-
-class FloatOriginData {
-    var delegate: FloatTarget?
-    
-    func letParse() {
-        delegate?.sendFloatData(data: 10.0)
-    }
-}
-
-class Calculation: DataToIntDelegate {
-
-    var a,b: Int?
-    var type: TypeCalculate?
-    
-    func newFirstInt(intData: Int) {
-        self.a = intData
-    }
-    func newSecondInt(intData: Int) {
-        self.b = intData
-    }
-    
-    func chooseType(type: TypeCalculate) {
-        self.type = type
-    }
-    
-    func calculate() -> Int {
-        guard let a = self.a, let b = self.b else { return 0}
-        return type?.calculate(a: a, b: b) ?? 0
-    }
-    
-}
-
-class Example {
-    func getValue() -> Int {
-        var calculator = Calculation()
-        calculator.chooseType(type: Math)
-        return calculator.calculate()
+class Client {
+    func createValue() -> (Int, Int) {
+        let tee1 = FirstAdaptee()
+        let tee2 = SecondAdaptee()
         
-//        calculator.chooseType(type: Multiply)
-//        return calculator.calculate()
+        let adap1 = ParseAdapter(tee1: tee1, tee2: tee2)
+        adap1.sendFloatData(data: 10.0)
+        adap1.sendStringData(data: "100")
+        return (tee1.firstValue, tee2.secondValue)
     }
 }
+
+class User {
+    var strategy: TypeCalculate?
+    
+    init(strategy: TypeCalculate) {
+        self.strategy = strategy
+    }
+    
+    func calculate(a: Int, b: Int) -> Int {
+        return strategy?.calculate(a: a, b: b) ?? 0
+    }
+    
+}
+
+
+let ex = Client()
+ex.createValue()
+
+var value1 = ex.createValue().0
+
+var value2 = ex.createValue().1
+
+let math = Math()
+let user = User(strategy: math)
+let result = user.calculate(a: value1, b: value2)
+print(value1, value2) 
+print("Result: \(result)")
