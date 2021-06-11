@@ -18,14 +18,12 @@ class ParseAdapter: FloatTarget, StringTarget {
   
     func sendFloatData(data: Float) {
         let newData = self.floatToInt(data: data)
-        print("NewFloatData: \(newData)")
-        self.adapteeFirst?.newFirstInt(intData: newData)
+        self.adapteeFirst?.returnInValue(intData: newData)
     }
     
     func sendStringData(data: String) {
         let newData = self.stringToInt(data: data)
-        print("NewStringData: \(newData)")
-        self.adapteeSecond?.newSecondInt(intData: newData)
+        self.adapteeSecond?.returnInValue(intData: newData)
     }
     
     func floatToInt(data: Float) -> Int {

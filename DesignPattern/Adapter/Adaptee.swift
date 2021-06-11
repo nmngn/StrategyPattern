@@ -7,20 +7,22 @@
 
 import Foundation
 
-class FirstAdaptee {
+protocol ValueReturn {
+    func returnInValue(intData: Int)
+}
+
+class FirstAdaptee: ValueReturn {
     var firstValue = 0
     
-    func newFirstInt(intData: Int) {
+    func returnInValue(intData: Int) {
         firstValue = intData
-        print("Fisrt is \(intData)")
     }
 }
 
-class SecondAdaptee {
+class SecondAdaptee: ValueReturn {
     var secondValue = 0
-    
-    func newSecondInt(intData: Int) {
+
+    func returnInValue(intData: Int) {
         secondValue = intData
-        print("Second is \(intData)")
     }
 }
